@@ -58,14 +58,14 @@ def extract_keypoints(results):
 model = Sequential()
 model.add(LSTM(512, return_sequences=True, activation='relu', input_shape=(30, 258)))
 model.add(BatchNormalization())
-model.add(Dropout(0.5))  # 增加 Dropout 率
+model.add(Dropout(0.2))
 model.add(LSTM(256, return_sequences=True, activation='relu'))
 model.add(BatchNormalization())
-model.add(Dropout(0.5))
+model.add(Dropout(0.2))
 model.add(LSTM(128, return_sequences=False, activation='relu'))
 model.add(BatchNormalization())
-model.add(Dropout(0.5))
-model.add(Dense(128, activation='relu'))
+model.add(Dropout(0.2))
+#model.add(Dense(128, activation='relu'))
 model.add(Dense(64, activation='relu'))
 model.add(Dense(actions.shape[0], activation='softmax'))
 
